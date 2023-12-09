@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Form Data Diri</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="date"],
+        select,
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: calc(100% - 12px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: auto;
+            margin-right: 5px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #fff;
+        }
+        .btn-primary {
+            background-color: #007bff;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+        }
+        .btn-primary:hover,
+        .btn-danger:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <form action="{{ route('data-diri.proses') }}" method="post">
+        <h1>Form Data Diri</h1>
+
+        <div class="form-group">
+            <label for="nama-lengkap">Nama Lengkap</label>
+            <input type="text" name="nama_lengkap" id="nama-lengkap" value="Muhammad Raga Titipan" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="tempat-tanggal-lahir">Tempat, Tanggal Lahir</label>
+            <input type="text" name="tempat_lahir" id="tempat-lahir" value="Bandung" class="form-control">
+            <input type="date" name="tanggal_lahir" id="tanggal-lahir" value="2000-12-12" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="alamat">Alamat</label>
+            <input type="text" name="alamat" id="alamat" value="jl.test" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="no-telp-hp">No. Telp/HP</label>
+            <input type="text" name="no_telp_hp" id="no-telp-hp" value="085284068684" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="jenis-kelamin">Jenis Kelamin</label>
+            <input type="radio" name="jenis_kelamin" id="jenis-kelamin-laki-laki" value="Laki-Laki" checked> Laki-Laki
+            <input type="radio" name="jenis_kelamin" id="jenis-kelamin-perempuan" value="Perempuan"> Perempuan
+        </div>
+
+        <div class="form-group">
+            <label for="agama">Agama</label>
+            <select name="agama" id="agama" class="form-control">
+                <option value="Islam">Islam</option>
+                <option value="Kristen">Kristen</option>
+                <option value="Katolik">Katolik</option>
+                <option value="Hindu">Hindu</option>
+                <option value="Buddha">Buddha</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="hobi">Hobi</label>
+            <input type="checkbox" name="hobi[]" id="hobi-baca-buku" value="Baca Buku"> Baca Buku
+            <input type="checkbox" name="hobi[]" id="hobi-olah-raga" value="Olah Raga"> Olah Raga
+            <input type="checkbox" name="hobi[]" id="hobi-main-game" value="Main Game"> Main Game
+            <input type="checkbox" name="hobi[]" id="hobi-hiking" value="hiking"> Hiking
+        </div>
+
+        <button type="submit" class="btn btn-primary">Tampilkan</button>
+        <button type="reset" class="btn btn-danger">Reset</button>
+    </form>
+</body>
+</html>
