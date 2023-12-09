@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Data Pegawai</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Data Pegawai</h1>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Tempat Lahir</th>
+                            <th>Tanggal Lahir</th>
+                            <th>Alamat</th>
+                            <th>No. Telp/HP</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Agama</th>
+                            <th>Hobi</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($pegawai as $item)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item->nama }}</td>
+                            <td>{{ $item->tempat_lahir }}</td>
+                            <td>{{ $item->tanggal_lahir }}</td>
+                            <td>{{ $item->alamat }}</td>
+                            <td>{{ $item->no_telp_hp }}</td>
+                            <td>{{ $item->jenis_kelamin }}</td>
+                            <td>{{ $item->agama }}</td>
+                            <td>{{ $item->hobi }}</td>
+                            <td>
+                                <a href="{{ route('pegawai.edit', $item->id) }}" class="btn btn-warning">Edit</a>
+                                <a href="{{ route('pegawai.delete', $item->id) }}" class="btn btn-danger">Hapus</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+                <a href="{{ route('pegawai.create') }}" class="btn btn-primary">Tambah Pegawai</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
